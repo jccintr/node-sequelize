@@ -9,11 +9,16 @@ dotenv.config();
 const server = express();
 server.use(router);
 
+server.use((req,res)=>{
+  res.status(404);
+  res.json({error: 'Não encontrado'});
+});
+
 try {
     await db.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Falha ao conectar ao banco de dados:', error);
+    console.log('Conectado ao servidor de dados.');
+} catch (error) {
+    console.error('Falha ao conectar ao banco de dados:', error); 
   }
 
 console.log('Servidor executando na porta '+ process.env.PORT);
