@@ -1,11 +1,13 @@
 import express  from "express";
 //import  ErrorRequestHandler  from "express";
-//import path from 'path';
+import path from 'path';
 import dotenv from 'dotenv';
 //import cors from 'cors';
 import { db } from "./db.js";
 import router from "./routes.js";
 import { MulterError } from "multer";
+
+const __dirname = path.resolve();
 
 dotenv.config();
 

@@ -1,10 +1,16 @@
 import sharp from "sharp";
+import {unlink} from 'fs/promises';
 
 export const upload = async (req,res) => {
 
     if(req.file){
-        res.status(200);
-        req.json({});
+        await sharp(req.file.path)
+        .toFormat('png')
+        .toFile(`./public/imagens/${req.file.filename}.png`);
+        
+        await unlink(req.file.path);
+
+        res.json({msg: 'upload concluido'});
 
     } else {
         res.status(400);
