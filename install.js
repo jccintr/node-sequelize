@@ -7,6 +7,6 @@ $ npm install --save mysql2
 
 para upload
 
-npm install multer
-
+npm install multer ==> upload
+npm install sharp ==> manipular imagens
 */
